@@ -11,7 +11,10 @@ module.exports = grammar({
       $.variable_write,
       $.conditional,
       $.opcode,
-      $.halt
+      $.halt,
+      $.negate,
+      $.output,
+      $.read
     )),
 
     add: $ => /[0-9]a/,
@@ -28,6 +31,9 @@ module.exports = grammar({
     )),
 
     halt: $ => /[0-9]h/,
+    negate: $ => /[0-9]n/,
+    output: $ => /[0-9]o/,
+    read: $ => /[0-9]r/,
 
     opcode_0: $ => "0x",
     opcode_1: $ => "1x",

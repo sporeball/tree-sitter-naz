@@ -37,6 +37,18 @@
           {
             "type": "SYMBOL",
             "name": "halt"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "negate"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "output"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "read"
           }
         ]
       }
@@ -93,6 +105,18 @@
     "halt": {
       "type": "PATTERN",
       "value": "[0-9]h"
+    },
+    "negate": {
+      "type": "PATTERN",
+      "value": "[0-9]n"
+    },
+    "output": {
+      "type": "PATTERN",
+      "value": "[0-9]o"
+    },
+    "read": {
+      "type": "PATTERN",
+      "value": "[0-9]r"
     },
     "opcode_0": {
       "type": "STRING",

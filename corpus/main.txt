@@ -21,6 +21,39 @@ halt
 (source_file
   (halt))
 
+======
+negate
+======
+
+1n
+
+---
+
+(source_file
+  (negate))
+
+======
+output
+======
+
+1o
+
+---
+
+(source_file
+  (output))
+
+====
+read
+====
+
+1r
+
+---
+
+(source_file
+  (read))
+
 =============
 function call
 =============

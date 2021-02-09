@@ -128,7 +128,19 @@
           "named": true
         },
         {
+          "type": "negate",
+          "named": true
+        },
+        {
           "type": "opcode",
+          "named": true
+        },
+        {
+          "type": "output",
+          "named": true
+        },
+        {
+          "type": "read",
           "named": true
         },
         {
@@ -190,6 +202,10 @@
     "named": true
   },
   {
+    "type": "negate",
+    "named": true
+  },
+  {
     "type": "opcode_0",
     "named": true
   },
@@ -203,6 +219,14 @@
   },
   {
     "type": "opcode_3",
+    "named": true
+  },
+  {
+    "type": "output",
+    "named": true
+  },
+  {
+    "type": "read",
     "named": true
   },
   {
