@@ -1,3 +1,26 @@
+==========
+arithmetic
+==========
+
+9a
+
+---
+
+(source_file
+  (arithmetic
+    (add)))
+
+====
+halt
+====
+
+1h
+
+---
+
+(source_file
+  (halt))
+
 =============
 function call
 =============

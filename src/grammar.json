@@ -8,6 +8,10 @@
         "members": [
           {
             "type": "SYMBOL",
+            "name": "arithmetic"
+          },
+          {
+            "type": "SYMBOL",
             "name": "function"
           },
           {
@@ -29,9 +33,66 @@
           {
             "type": "SYMBOL",
             "name": "opcode"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "halt"
           }
         ]
       }
+    },
+    "add": {
+      "type": "PATTERN",
+      "value": "[0-9]a"
+    },
+    "subtract": {
+      "type": "PATTERN",
+      "value": "[0-9]s"
+    },
+    "multiply": {
+      "type": "PATTERN",
+      "value": "[0-9]m"
+    },
+    "divide": {
+      "type": "PATTERN",
+      "value": "[1-9]d"
+    },
+    "modulo": {
+      "type": "PATTERN",
+      "value": "[1-9]p"
+    },
+    "arithmetic": {
+      "type": "PREC",
+      "value": 2,
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "add"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "subtract"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "multiply"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "divide"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "modulo"
+          }
+        ]
+      }
+    },
+    "halt": {
+      "type": "PATTERN",
+      "value": "[0-9]h"
     },
     "opcode_0": {
       "type": "STRING",

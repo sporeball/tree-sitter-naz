@@ -4,13 +4,30 @@ module.exports = grammar({
   rules: {
     // TODO: add the rest of the grammar rules
     source_file: $ => repeat(choice(
+      $.arithmetic,
       $.function,
       $.function_write,
       $.variable,
       $.variable_write,
       $.conditional,
-      $.opcode
+      $.opcode,
+      $.halt
     )),
+
+    add: $ => /[0-9]a/,
+    subtract: $ => /[0-9]s/,
+    multiply: $ => /[0-9]m/,
+    divide: $ => /[1-9]d/,
+    modulo: $ => /[1-9]p/,
+    arithmetic: $ => prec(2, choice(
+      $.add,
+      $.subtract,
+      $.multiply,
+      $.divide,
+      $.modulo
+    )),
+
+    halt: $ => /[0-9]h/,
 
     opcode_0: $ => "0x",
     opcode_1: $ => "1x",

@@ -1,5 +1,36 @@
 [
   {
+    "type": "arithmetic",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "add",
+          "named": true
+        },
+        {
+          "type": "divide",
+          "named": true
+        },
+        {
+          "type": "modulo",
+          "named": true
+        },
+        {
+          "type": "multiply",
+          "named": true
+        },
+        {
+          "type": "subtract",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "conditional",
     "named": true,
     "fields": {},
@@ -77,6 +108,10 @@
       "required": false,
       "types": [
         {
+          "type": "arithmetic",
+          "named": true
+        },
+        {
           "type": "conditional",
           "named": true
         },
@@ -86,6 +121,10 @@
         },
         {
           "type": "function_write",
+          "named": true
+        },
+        {
+          "type": "halt",
           "named": true
         },
         {
@@ -123,11 +162,31 @@
     }
   },
   {
+    "type": "add",
+    "named": true
+  },
+  {
     "type": "condition",
     "named": true
   },
   {
+    "type": "divide",
+    "named": true
+  },
+  {
     "type": "function",
+    "named": true
+  },
+  {
+    "type": "halt",
+    "named": true
+  },
+  {
+    "type": "modulo",
+    "named": true
+  },
+  {
+    "type": "multiply",
     "named": true
   },
   {
@@ -144,6 +203,10 @@
   },
   {
     "type": "opcode_3",
+    "named": true
+  },
+  {
+    "type": "subtract",
     "named": true
   },
   {
