@@ -1,0 +1,9 @@
+node_modules/
+
+# not needed? i think?
+parser.exp
+parser.lib
+parser.obj
+
+# for use with parse command
+test.naz

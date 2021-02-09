@@ -1,0 +1,29 @@
+{
+  "name": "tree-sitter-naz",
+  "version": "0.0.0",
+  "description": "naz grammar for tree-sitter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sporeball/tree-sitter-naz.git"
+  },
+  "keywords": [
+    "parser",
+    "lexer"
+  ],
+  "author": "sporeball",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sporeball/tree-sitter-naz/issues"
+  },
+  "homepage": "https://github.com/sporeball/tree-sitter-naz#readme",
+  "dependencies": {
+    "nan": "^2.14.2"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.18.0"
+  }
+}
