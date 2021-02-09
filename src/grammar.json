@@ -2,8 +2,140 @@
   "name": "naz",
   "rules": {
     "source_file": {
+      "type": "REPEAT",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "function"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "function_write"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "variable"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "variable_write"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "conditional"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "opcode"
+          }
+        ]
+      }
+    },
+    "opcode_0": {
       "type": "STRING",
-      "value": "1a"
+      "value": "0x"
+    },
+    "opcode_1": {
+      "type": "STRING",
+      "value": "1x"
+    },
+    "opcode_2": {
+      "type": "STRING",
+      "value": "2x"
+    },
+    "opcode_3": {
+      "type": "STRING",
+      "value": "3x"
+    },
+    "opcode": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "opcode_0"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "opcode_1"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "opcode_2"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "opcode_3"
+        }
+      ]
+    },
+    "function": {
+      "type": "PATTERN",
+      "value": "[0-9]f"
+    },
+    "function_write": {
+      "type": "PREC",
+      "value": 2,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "opcode_1"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "function"
+          }
+        ]
+      }
+    },
+    "variable": {
+      "type": "PATTERN",
+      "value": "[0-9]v"
+    },
+    "variable_write": {
+      "type": "PREC",
+      "value": 2,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "opcode_2"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "variable"
+          }
+        ]
+      }
+    },
+    "condition": {
+      "type": "PATTERN",
+      "value": "[0-9][egl]"
+    },
+    "conditional": {
+      "type": "PREC",
+      "value": 2,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "opcode_3"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "variable"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "condition"
+          }
+        ]
+      }
     }
   },
   "extras": [
