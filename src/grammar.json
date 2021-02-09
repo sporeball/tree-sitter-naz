@@ -7,48 +7,29 @@
         "type": "CHOICE",
         "members": [
           {
-            "type": "SYMBOL",
-            "name": "arithmetic"
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "fragment"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "comment"
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              }
+            ]
           },
           {
             "type": "SYMBOL",
-            "name": "function"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "function_write"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "variable"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "variable_write"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "conditional"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "opcode"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "halt"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "negate"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "output"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "read"
+            "name": "comment"
           }
         ]
       }
@@ -221,6 +202,59 @@
           }
         ]
       }
+    },
+    "comment": {
+      "type": "PATTERN",
+      "value": " *#.*"
+    },
+    "fragment": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "arithmetic"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "function"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "function_write"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "variable"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "variable_write"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "conditional"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "opcode"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "halt"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "negate"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "output"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "read"
+        }
+      ]
     }
   },
   "extras": [

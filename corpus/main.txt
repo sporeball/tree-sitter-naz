@@ -7,8 +7,9 @@ arithmetic
 ---
 
 (source_file
-  (arithmetic
-    (add)))
+  (fragment
+    (arithmetic
+      (add))))
 
 ====
 halt
@@ -19,7 +20,8 @@ halt
 ---
 
 (source_file
-  (halt))
+  (fragment
+    (halt)))
 
 ======
 negate
@@ -30,7 +32,8 @@ negate
 ---
 
 (source_file
-  (negate))
+  (fragment
+    (negate)))
 
 ======
 output
@@ -41,7 +44,8 @@ output
 ---
 
 (source_file
-  (output))
+  (fragment
+    (output)))
 
 ====
 read
@@ -52,7 +56,8 @@ read
 ---
 
 (source_file
-  (read))
+  (fragment
+    (read)))
 
 =============
 function call
@@ -63,7 +68,8 @@ function call
 ---
 
 (source_file
-  (function))
+  (fragment
+    (function)))
 
 ==============
 function write
@@ -74,9 +80,10 @@ function write
 ---
 
 (source_file
-  (function_write
-    (opcode_1)
-    (function)))
+  (fragment
+    (function_write
+      (opcode_1)
+      (function))))
 
 =============
 variable load
@@ -87,7 +94,8 @@ variable load
 ---
 
 (source_file
-  (variable))
+  (fragment
+    (variable)))
 
 ==============
 variable write
@@ -98,9 +106,10 @@ variable write
 ---
 
 (source_file
-  (variable_write
-    (opcode_2)
-    (variable)))
+  (fragment
+    (variable_write
+      (opcode_2)
+      (variable))))
 
 ================
 conditional goto
@@ -111,10 +120,11 @@ conditional goto
 ---
 
 (source_file
-  (conditional
-    (opcode_3)
-    (variable)
-    (condition)))
+  (fragment
+    (conditional
+      (opcode_3)
+      (variable)
+      (condition))))
 
 ==========
 opcode set
@@ -125,5 +135,35 @@ opcode set
 ---
 
 (source_file
-  (opcode
-    (opcode_1)))
+  (fragment
+    (opcode
+      (opcode_1))))
+
+=======
+comment
+=======
+
+# comment
+
+---
+
+(source_file
+  (comment))
+
+=================
+line with comment
+=================
+
+1x1f1a # function 1: add 1
+
+---
+
+(source_file
+  (fragment
+    (function_write
+      (opcode_1)
+      (function)))
+  (fragment
+    (arithmetic
+      (add)))
+  (comment))

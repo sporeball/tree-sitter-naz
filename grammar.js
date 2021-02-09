@@ -2,19 +2,9 @@ module.exports = grammar({
   name: 'naz',
 
   rules: {
-    // TODO: add the rest of the grammar rules
     source_file: $ => repeat(choice(
-      $.arithmetic,
-      $.function,
-      $.function_write,
-      $.variable,
-      $.variable_write,
-      $.conditional,
-      $.opcode,
-      $.halt,
-      $.negate,
-      $.output,
-      $.read
+      seq($.fragment, optional($.comment)),
+      $.comment
     )),
 
     add: $ => /[0-9]a/,
@@ -48,6 +38,22 @@ module.exports = grammar({
     variable_write: $ => prec(2, seq($.opcode_2, $.variable)),
 
     condition: $ => /[0-9][egl]/,
-    conditional: $ => prec(2, seq($.opcode_3, $.variable, $.condition))
+    conditional: $ => prec(2, seq($.opcode_3, $.variable, $.condition)),
+
+    comment: $ => / *#.*/,
+
+    fragment: $ => choice(
+      $.arithmetic,
+      $.function,
+      $.function_write,
+      $.variable,
+      $.variable_write,
+      $.conditional,
+      $.opcode,
+      $.halt,
+      $.negate,
+      $.output,
+      $.read
+    )
   }
 });

@@ -54,6 +54,61 @@
     }
   },
   {
+    "type": "fragment",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "arithmetic",
+          "named": true
+        },
+        {
+          "type": "conditional",
+          "named": true
+        },
+        {
+          "type": "function",
+          "named": true
+        },
+        {
+          "type": "function_write",
+          "named": true
+        },
+        {
+          "type": "halt",
+          "named": true
+        },
+        {
+          "type": "negate",
+          "named": true
+        },
+        {
+          "type": "opcode",
+          "named": true
+        },
+        {
+          "type": "output",
+          "named": true
+        },
+        {
+          "type": "read",
+          "named": true
+        },
+        {
+          "type": "variable",
+          "named": true
+        },
+        {
+          "type": "variable_write",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "function_write",
     "named": true,
     "fields": {},
@@ -108,47 +163,11 @@
       "required": false,
       "types": [
         {
-          "type": "arithmetic",
+          "type": "comment",
           "named": true
         },
         {
-          "type": "conditional",
-          "named": true
-        },
-        {
-          "type": "function",
-          "named": true
-        },
-        {
-          "type": "function_write",
-          "named": true
-        },
-        {
-          "type": "halt",
-          "named": true
-        },
-        {
-          "type": "negate",
-          "named": true
-        },
-        {
-          "type": "opcode",
-          "named": true
-        },
-        {
-          "type": "output",
-          "named": true
-        },
-        {
-          "type": "read",
-          "named": true
-        },
-        {
-          "type": "variable",
-          "named": true
-        },
-        {
-          "type": "variable_write",
+          "type": "fragment",
           "named": true
         }
       ]
@@ -175,6 +194,10 @@
   },
   {
     "type": "add",
+    "named": true
+  },
+  {
+    "type": "comment",
     "named": true
   },
   {
