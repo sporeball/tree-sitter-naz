@@ -1,0 +1,73 @@
+=============
+function call
+=============
+
+1f
+
+---
+
+(source_file
+  (function))
+
+==============
+function write
+==============
+
+1x1f
+
+---
+
+(source_file
+  (function_write
+    (opcode_1)
+    (function)))
+
+=============
+variable load
+=============
+
+1v
+
+---
+
+(source_file
+  (variable))
+
+==============
+variable write
+==============
+
+2x1v
+
+---
+
+(source_file
+  (variable_write
+    (opcode_2)
+    (variable)))
+
+================
+conditional goto
+================
+
+3x1v2e
+
+---
+
+(source_file
+  (conditional
+    (opcode_3)
+    (variable)
+    (condition)))
+
+==========
+opcode set
+==========
+
+1x
+
+---
+
+(source_file
+  (opcode
+    (opcode_1)))
