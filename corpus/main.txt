@@ -1,9 +1,7 @@
 ==========
 arithmetic
 ==========
-
 9a
-
 ---
 
 (source_file
@@ -14,9 +12,7 @@ arithmetic
 ====
 halt
 ====
-
 1h
-
 ---
 
 (source_file
@@ -26,9 +22,7 @@ halt
 ======
 negate
 ======
-
 1n
-
 ---
 
 (source_file
@@ -38,9 +32,7 @@ negate
 ======
 output
 ======
-
 1o
-
 ---
 
 (source_file
@@ -50,9 +42,7 @@ output
 ====
 read
 ====
-
 1r
-
 ---
 
 (source_file
@@ -62,9 +52,7 @@ read
 =============
 function call
 =============
-
 1f
-
 ---
 
 (source_file
@@ -74,9 +62,7 @@ function call
 ==============
 function write
 ==============
-
 1x1f
-
 ---
 
 (source_file
@@ -88,9 +74,7 @@ function write
 =============
 variable load
 =============
-
 1v
-
 ---
 
 (source_file
@@ -100,9 +84,7 @@ variable load
 ==============
 variable write
 ==============
-
 2x1v
-
 ---
 
 (source_file
@@ -114,9 +96,7 @@ variable write
 ================
 conditional goto
 ================
-
 3x1v2e
-
 ---
 
 (source_file
@@ -129,9 +109,7 @@ conditional goto
 ==========
 opcode set
 ==========
-
 1x
-
 ---
 
 (source_file
@@ -140,30 +118,47 @@ opcode set
       (opcode_1))))
 
 =======
-comment
+comment (full)
 =======
-
 # comment
-
 ---
 
 (source_file
   (comment))
 
-=================
-line with comment
-=================
-
-1x1f1a # function 1: add 1
-
+===============================
+comment (full, with whitespace)
+===============================
+        # comment
 ---
 
 (source_file
-  (fragment
-    (function_write
-      (opcode_1)
-      (function)))
-  (fragment
-    (arithmetic
-      (add)))
+  (whitespace)
   (comment))
+
+=================
+comment (partial)
+=================
+1a # add 1
+---
+
+(source_file
+  (group_good
+    (fragment
+      (arithmetic
+        (add)))
+    (whitespace)
+    (comment)))
+
+================================
+comment (partial, without whitespace)
+================================
+1a# add 1
+---
+
+(source_file
+  (group_bad
+    (fragment
+      (arithmetic
+        (add)))
+    (comment)))

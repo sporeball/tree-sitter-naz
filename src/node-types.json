@@ -128,6 +128,48 @@
     }
   },
   {
+    "type": "group_bad",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "fragment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "group_good",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "fragment",
+          "named": true
+        },
+        {
+          "type": "whitespace",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "opcode",
     "named": true,
     "fields": {},
@@ -168,6 +210,22 @@
         },
         {
           "type": "fragment",
+          "named": true
+        },
+        {
+          "type": "group_bad",
+          "named": true
+        },
+        {
+          "type": "group_good",
+          "named": true
+        },
+        {
+          "type": "newline",
+          "named": true
+        },
+        {
+          "type": "whitespace",
           "named": true
         }
       ]
@@ -229,6 +287,10 @@
     "named": true
   },
   {
+    "type": "newline",
+    "named": true
+  },
+  {
     "type": "opcode_0",
     "named": true
   },
@@ -258,6 +320,10 @@
   },
   {
     "type": "variable",
+    "named": true
+  },
+  {
+    "type": "whitespace",
     "named": true
   }
 ]

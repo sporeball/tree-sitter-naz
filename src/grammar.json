@@ -7,29 +7,28 @@
         "type": "CHOICE",
         "members": [
           {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "fragment"
-              },
-              {
-                "type": "CHOICE",
-                "members": [
-                  {
-                    "type": "SYMBOL",
-                    "name": "comment"
-                  },
-                  {
-                    "type": "BLANK"
-                  }
-                ]
-              }
-            ]
+            "type": "SYMBOL",
+            "name": "group_good"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "group_bad"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "fragment"
           },
           {
             "type": "SYMBOL",
             "name": "comment"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "newline"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "whitespace"
           }
         ]
       }
@@ -205,7 +204,15 @@
     },
     "comment": {
       "type": "PATTERN",
-      "value": " *#.*"
+      "value": "#.*"
+    },
+    "whitespace": {
+      "type": "PATTERN",
+      "value": " +"
+    },
+    "newline": {
+      "type": "PATTERN",
+      "value": "\\n"
     },
     "fragment": {
       "type": "CHOICE",
@@ -255,6 +262,44 @@
           "name": "read"
         }
       ]
+    },
+    "group_good": {
+      "type": "PREC",
+      "value": 4,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "fragment"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "whitespace"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "comment"
+          }
+        ]
+      }
+    },
+    "group_bad": {
+      "type": "PREC",
+      "value": 4,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "fragment"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "comment"
+          }
+        ]
+      }
     }
   },
   "extras": [

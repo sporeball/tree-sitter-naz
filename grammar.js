@@ -3,10 +3,15 @@ module.exports = grammar({
 
   rules: {
     source_file: $ => repeat(choice(
-      seq($.fragment, optional($.comment)),
-      $.comment
+      $.group_good,
+      $.group_bad,
+      $.fragment,
+      $.comment,
+      $.newline,
+      $.whitespace
     )),
 
+    // arithmetic instructions
     add: $ => /[0-9]a/,
     subtract: $ => /[0-9]s/,
     multiply: $ => /[0-9]m/,
@@ -20,17 +25,20 @@ module.exports = grammar({
       $.modulo
     )),
 
+    // other instructions
     halt: $ => /[0-9]h/,
     negate: $ => /[0-9]n/,
     output: $ => /[0-9]o/,
     read: $ => /[0-9]r/,
 
+    // opcodes
     opcode_0: $ => "0x",
     opcode_1: $ => "1x",
     opcode_2: $ => "2x",
     opcode_3: $ => "3x",
     opcode: $ => choice($.opcode_0, $.opcode_1, $.opcode_2, $.opcode_3),
 
+    // constructs
     function: $ => /[0-9]f/,
     function_write: $ => prec(2, seq($.opcode_1, $.function)),
 
@@ -40,7 +48,10 @@ module.exports = grammar({
     condition: $ => /[0-9][egl]/,
     conditional: $ => prec(2, seq($.opcode_3, $.variable, $.condition)),
 
-    comment: $ => / *#.*/,
+    // misc.
+    comment: $ => /#.*/,
+    whitespace: $ => / +/,
+    newline: $ => /\n/,
 
     fragment: $ => choice(
       $.arithmetic,
@@ -54,6 +65,14 @@ module.exports = grammar({
       $.negate,
       $.output,
       $.read
-    )
+    ),
+
+    // valid partial comment group
+    // matches a line like "1a # add 1"
+    group_good: $ => prec(4, seq($.fragment, $.whitespace, $.comment)),
+
+    // invalid partial comment group
+    // matches a line like "1a# add 1"
+    group_bad: $ => prec(4, seq($.fragment, $.comment))
   }
 });
